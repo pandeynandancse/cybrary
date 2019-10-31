@@ -1,0 +1,268 @@
+Learning objectives:
+why CLI is important   ---- actions at cli can be easily replicated.-->>>many advance tools that does not have to gui  --->>> automate boring tasks.
+difference between cli and gui ---->>> gui is easy to understand.
+open command line in windows  --->> start and type cmd  -->>window key + R and then type cmd -->> right click on windows icon and click windows powershell.
+open terminal on linux
+
+
+
+
+<command><switch><parameter>
+
+Linux manual pages can be accessed by -->> man
+manual page for grep   ---->>>   man grep
+to get help in terminal or cmd ---->> help
+in windows know more about command -->> grep /help   or grep /?
+in terinal know more about command -->> grep -h   or  grep--help
+
+
+
+
+pwd
+dir -> windows //////  ls -->> linus
+cd
+
+
+
+
+Customize cli environment --
+windows   -   properites in top left corner 
+linux     -    edit and preferences and go to color for changing color
+fg--> .restarts a paused commands
+
+
+
+
+Directories and drive--
+mkdir - make new directory
+cd -- change direcory
+cd /d[drive] -- windows only ==>>         cd /d D:\         ===>> gone to D drive
+Tree ---- Graphically dispalys folder and file structures   -->> sudo apt-get install tree   --->>> tree ~/Downlaods     ----->>> show all files
+
+
+
+
+
+
+----------------------------------
+for linux-->>>
+grep  search_content file_name                                  -->>> search through text 
+ngrep                                  --> network grep --> searching through network packet capture file
+cat                                     -- read a file   -- concatenate files also
+more                                    -   also reads file
+less                                    -- also reads file -- important in comparison with more
+cp file_name dedstination_folder              -- copy
+cp -R                                    --- copy recursively
+mv  file_name dedstination_folder         ----- move    --- also used to rename files
+rm                                          ----   remove files  
+rm -r                                      ---- recurssively remove files
+rm -f                                       --- f is force without prompting
+
+
+-------------------------------------------
+for windows-->>
+type                                   --- displays content of file
+more                                    -- displays a file one screen a a time
+copy
+move
+rename
+del                         ---- delete file/directory
+del /s                     ---- /s is used for deleting subdirectories
+erase                        ---- same as del
+find          --- search for string
+findstr
+
+
+
+
+
+
+--------------------------------
+ls
+ls -l
+ls -a      /////  lists all hidden files also ---->>> hidden files starts with '.' dot.
+
+cd
+cd ..
+pwd
+
+cat
+more      ------  displays a file one screen a a time  ---- 1 to enter ---- space to page down   ----  q  to  quit  ----- cannot scroll back up. 
+less   ----- allows scroll up and down  and mouse scroll is allowed   ----- advancement of more command
+clear
+
+
+sudo      ---- user to obtain root permission
+locate text_search     ------ displays files which contains the 'text_search'
+nano   -----  text editor in terminal
+sudo updatedb
+cp
+cp -R
+rm
+rm -r
+rm -f
+mv
+
+
+
+touch new_file               -----    creates new empty file
+touch existing_file          -----    modifies the date and time of existing_file's modification time
+
+user owner group ---- drwxrwxrwx ---- 
+chmod   ---- change user
+chown     ---  change owner
+
+
+
+
+find  path  file_name   ------ similar to locate but no database  --- time taking operation
+grep                     ----- pattern based search     ---->>>> -a switch is used to search through binary files
+
+
+
+sed       ------ stream editor  -----  edit a stream of text
+sort
+uniq      ----- removes text with more than one result  ---- usually used with sort   ---   -c to  get a count of words.
+cat abc.txt | sort | uniq -c
+
+sed s/old/new/             ----- search and replace first occurence of 'old' with 'new' only. 
+sed s/old/new/g             ---- gloabally search and replace and replace all occcurence of 'old' with 'new'.
+
+
+
+
+                              
+                                            hashing vs encoding
+hashing -- one way algo  -->> can not be revrsed  --> useed to validate integrity  ---->>> example= md5sum , sha1sum
+encoding --->> reversible   ---->>> example = base64
+
+echo "hello" | base64     ---->> convert 'hello' into base64
+echo "base64 string goes here" | base64 -d        ----->>>>> decode base64 goes here into readable format
+
+echo "base64 string goes here" | md5sum      ------>>>> converts base64 into md5sum ---> one way
+
+echo "base64 string goes here" | sha1sum  --->>> one way
+
+
+
+
+
+system commands--
+sudo
+apt-get
+apt list subl    ---- checks whether installeed or not
+whoami       ------ used to display current user  ----- useful on ssh connections
+uname       ------ used to display linux system properties
+uname -a     ----- -a stands for all
+
+id user       ---- id used to print user and grooup info  ----- can show permmissions for other users
+id root 
+last          ---- shows user last logged in   ---- shows what they used to login as well.
+ps                  ----  used to display running process ---dpalys only current user processes by default
+ps aux                ----  displays all processes on system
+
+kill pid      ----- kill the process of given process id that is pid.   ---- same as task manager stopping application that is proces when not responding.
+
+
+
+
+
+
+
+
+networking commands ---
+ifconfig
+netstat                 ------ shows open network connections
+netstat -r              -------- can show routing table with -r
+lsof              ------ listopen files
+
+telnet ip_address         ----- should never used today ---- no encryption ----- is in plain texxt   -- - u can see password via wireshark start capturing that is entered by terminal through connecting remote server as telnet 192.168.0.1 and this site required login and assword and u enterd it via plain text. 
+                  ---- select telnet packet and right click on it and click on 'follow' it . u will get password in plaintext
+
+
+ssh ip_address  --- secure shell  --- encrypts termminal session   ---- uses certificate based encryption
+
+nc ip_address port_number_to_listen_on      
+nc -lp port_number_to_listen_on                       ---- net cat  ---- extremely simple protocol   ---- used in malware frequently    --- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------
+windows based cmd commands :
+ls
+cd 
+cd /d C:  ----- changing drive and entering in C drive
+dir
+
+type  ---- reads content of file  ----- pipe into 'more' if too long
+cls   ---- clear the scrreen
+
+echo
+icacls /?        ---- get more info about icacls
+icacls file1.txt /grant user:permmission         ----- change file permission  --- integerity control access control list   
+fc file1.txt  file2.txt                             ------ file compare
+
+
+
+copy
+move
+robocopy             ----- it can copy only changed files  ------ robust copy
+xcopy                      ---- copy files and directories
+
+
+systeminfo -------   displays info about computer
+date
+time
+whoami         ----- dispays  logged in user
+doskey /history        ------- displays previous commands only within curent session
+
+
+sc start servicename           ----- start and stop service  ---- service control
+sc stop servicename
+tasklist              ------ displays all running processes
+taskkill  /pid pid_no         
+
+
+
+chkdsk         ------ potentially repair a hard drive    -------  useful in recovery mode  --- validates and repairs sectors on disk
+fsutil          ----- file system utilities        ------ changes dirty bit
+sfc              ---- system file check   --- checks protected system files     ---- can help recover corrupted os files
+
+ipconfig 
+getmac              ----- displays mac address for each interface
+nslookup           ----- submit dns queries   ---- zone transfer    ---  choose dns server
+
+osi model -- pdntspa
+
+
+ping ip_addresss    ------- used to validate connectivity
+tracert          ----- trace route ---- advancce of ping ---- displays all hops on route to destination  --- useful in troubleshooting latency
+arp        ----- 
+arp -a      --- shows arp cahce   ---- impoortant becoz it can be poisioned
+
+
+netstat ------- used to display all active connnnections   ---- can be used to identify malware
+ftp ip_address         ----- inecure by default ------ list ,downlaod ,upload files
+ssh user@address      ----- access command line for another terminal  ---- encrypted
+
+
+
+
+
+
+
+
+
