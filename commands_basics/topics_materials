@@ -262,7 +262,110 @@ ssh user@address      ----- access command line for another terminal  ---- encry
 
 
 
+net          ----- add users --- add groups    ---- start/stop services ----- connnecct to other computers
+net use k: \\computer_name\D$       ------ used to mount a remote share ---- D drive is now on network share as k drive
+net use k: /delete      -------- delete k drive from network share
 
 
+
+
+
+cmd_1 | cmd_2                  -------- single pipe  ----- combine mutiple commands  ------- execute both commands ------ often used with 'less' or 'grep'
+cmd_1  ||  cmd_2                 ------ execute cmd_2 only if cmd_1 fails.
+cmd_1 & cmd_2                --- executes a command after first command  ---- used to submit several commands on one line 
+cmd_1 ; cmd_2                ------   used in linux and works same as & in windows.
+firefox &       ------  launches firefox gui from cli  and keeps in background     ------  still u can work on terminal along with firefox  --------    in linux       -----  executedds a cmd to run in background   ----- useul to launch application  and keep termmianl   ---- general launhces gui from cli
+firefox    ----- this disables terminals and open only firefox to run and u can not use terminal  . --- in linux
+cmd_1 && cmd_2                -----   executes second command only if first command is successful.
+
+
+
+
+>      --- direct output  in a file ---- will create a file if not exist  ---- overwrite to file if it exists
+>>      --- direct output     ---- will create a file if not exist  ---- appends to  file if it exists
+<          --- direct input from a file --- file must exist 
+<<       ---- not valid operator
+
+
+
+
+
+
+
+---------------------------------------
+Advance commands line technniques  ---
+
+1) linux for loop ->
+
+   for i in {1..5}; do echo $i ; done
+   
+2) linux while loop ->
+   while Tue; do echo "running"; done
+   
+ 3) linux file loops  ->
+    for i in $(cat wors_list.txt);do echo $i; done
+    
+ 
+ 4) windows loops -->> 
+                     /L -> for list of numbers
+                     /F  -> for file input 
+                     
+                     
+                     
+                     eg.   for /L %G in (1,1,15)do  echo  %G                ///// (start,steps,end)
+                              for /l %G in () do echo  %G              ///// infinit loop
+                              for /F %G in (words_list.txt)  do echo  %G    
+
+
+
+
+5) linux shell script  -------- 
+                  
+                          a)  file extension for linux shell scipt -->  .sh  
+                          b) can be executed by ternminal or other processes
+                          c) writing shell script -->
+                                   starting with   =>>    #! /bin/bash
+                                   comments with   =>>    #
+                                   
+                                   
+                          d) example  --- save this file as file_1.sh
+                                       #! /bin/bash
+                                        for i in {1..5}  
+                                        do 
+                                            echo $i 
+                                        done
+                                        
+                           e) running shell file -->>file_1.sh to be executable it should has +x permission
+                           
+                                          ./file_1.sh
+                                          
+                                          
+                                          
+                                      
+                                      
+                                      
+                                      
+  
+5) windows batch script  -------- 
+                  
+                          a)  file extension for windows batch scipt -->  .bat
+                          b) can be executed by ternminal or other processes
+                          c) writing batch script -->
+                                   :label    ====>>> creates section of script
+                                   goto label   ====>> access label section
+                                   
+                          d) example  --- save this file as file_1.bat
+                                      
+                                      :start 
+                                       echo "hello"
+                                      
+                                      goto start                       ////infinite loop
+                                        
+                                        
+                                        
+                           e) running batch file -->>
+                           
+                                          file_1.bat
+                                       
 
 
